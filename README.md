@@ -1,1 +1,1 @@
-# docker-node-hapi-grapql-contentful
+# node-hapi-grapql-contentful
