@@ -1,10 +1,18 @@
-export default [
+import { getClient } from './utils/contentful'
+
+const routes = [
   {
     method: 'GET',
     path: '/',
     handler(request, reply) {
       const data = {
-        message: 'Check the route that requires auth at /basic'
+        message: 'Requested data:',
+        response: {
+          json: {
+            a: 'key1',
+            b: 'key2'
+          }
+        }
       }
 
       reply.view('index', data)
@@ -20,4 +28,6 @@ export default [
       }
     }
   }
-];
+]
+
+export default routes

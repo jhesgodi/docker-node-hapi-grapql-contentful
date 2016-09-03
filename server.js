@@ -1,15 +1,14 @@
-import Hapi from 'hapi';
-import Good from 'good';
-import Bcrypt from 'bcrypt';
-import Vision from 'vision';
-import Handlebars from 'handlebars';
-import BasicAuth from 'hapi-auth-basic';
+import Hapi from 'hapi'
+import Good from 'good'
+import Bcrypt from 'bcrypt'
+import Vision from 'vision'
+import Handlebars from 'handlebars'
+import BasicAuth from 'hapi-auth-basic'
 
-import routes from './routes';
+import routes from './src/routes'
 
 const host = 'localhost'
 const port = 3000
-const viewsPath = __dirname + '/views'
 
 // Create new server instance
 const server = new Hapi.Server()
@@ -36,7 +35,7 @@ server.register([
           {
             module: 'good-squeeze',
             name: 'Squeeze',
-            args: [ { log: '*', response: '*', request: '*' } ]
+            args: [{ log: '*', response: '*', request: '*' }]
           },
           {
             module: 'good-console'
@@ -49,11 +48,10 @@ server.register([
   {
     register: BasicAuth
   }
-], (err) => {
-  if (err) {
+], (errPlugins) => {
+  if (errPlugins) {
     server.log('error', 'Failed to install plugins')
-
-    throw err
+    throw errPlugins
   }
   server.log('info', 'Plugins registered')
 
@@ -62,8 +60,11 @@ server.register([
     engines: {
       html: Handlebars
     },
-    path: viewsPath,
-    layout: true
+    path: `${__dirname}/src/views`,
+    layoutPath: `${__dirname}/src/views/layout`,
+    layout: 'default',
+    partialsPath: `${__dirname}/src/views/partials`,
+    helpersPath: `${__dirname}/src/views/helpers`
   })
   server.log('info', 'View configuration completed')
 
@@ -71,7 +72,6 @@ server.register([
   const users = {
     admin: {
       username: 'admin',
-      // 'studio'
       password: '$2a$04$YPy8WdAtWswed8b9MfKixebJkVUhEZxQCrExQaxzhcdR2xMmpSJiG',
       name: 'Admin',
       id: '1'
@@ -80,19 +80,21 @@ server.register([
 
   // Validation function used for hapi-auth-basic
   const basicValidation = (request, username, password, callback) => {
-    const user = users[ username ]
+    const user = users[username]
 
     if (!user) {
       return callback(null, false)
     }
 
-    Bcrypt.compare(password, user.password, function (err, isValid) {
+    Bcrypt.compare(password, user.password, (bcryptError, isValid) => {
       server.log('info', 'User authentication successful')
-      callback(err, isValid, {
+      callback(bcryptError, isValid, {
         id: user.id,
         name: user.name
       })
     })
+
+    return null
   }
 
   server.auth.strategy('basic', 'basic', { validateFunc: basicValidation })
@@ -101,14 +103,13 @@ server.register([
   server.route(routes)
   server.log('info', 'Routes registered')
 
-  // Start your server after plugin registration
-  server.start((err) => {
-    if (err) {
+  // Start the server after plugin registration
+  server.start((errStart) => {
+    if (errStart) {
       server.log('error', 'Failed to start server')
-      server.log('error', err)
-
-      throw err
+      server.log('error', errStart)
+      throw errStart
     }
-    server.log('info', 'Server running at: ' + server.info.uri)
+    server.log('info', `Server running at: ${server.info.uri}`)
   })
 })
