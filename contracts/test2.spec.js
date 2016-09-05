@@ -1,4 +1,4 @@
-import { Contract, Joi } from 'consumer-contracts';
+import { Contract, Joi } from 'consumer-contracts'
 
 export default new Contract({
   name: 'User API',
@@ -15,4 +15,4 @@ export default new Contract({
       public_repos: Joi.number().integer()
     })
   }
-});
+})

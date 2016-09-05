@@ -1,4 +1,33 @@
-import isNumber from 'lodash/isNumber';
+import isNumber from 'lodash/isNumber'
+
+/**
+ * [censor description]
+ * @param  {[type]} censorObj [description]
+ * @return {[type]}           [description]
+ */
+function censor(censorObj) {
+  let i = 0;
+
+  return function(key, value) {
+    const circular = i !== 0 &&
+      typeof censorObj === 'object' &&
+      typeof value === 'object' &&
+      censorObj === value
+    const manyNodes = i >= 50
+
+    if (circular) {
+      return '[Circular]'
+    }
+
+    if (manyNodes) {
+      return '[Unknown]';
+    }
+
+    ++i;
+
+    return value;
+  }
+}
 
 /**
  * [stringify description]
@@ -10,10 +39,10 @@ const stringify = function(obj, indent) {
   let thisIndent = indent
 
   if (!isNumber(indent)) {
-    thisIndent = 0;
+    thisIndent = 0
   }
 
-  return JSON.stringify(obj, null, thisIndent);
+  return JSON.stringify(obj, censor(obj), thisIndent)
 }
 
-module.exports = stringify;
+module.exports = stringify

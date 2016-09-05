@@ -1,23 +1,9 @@
-import { getClient, spaceID, getAccessToken } from '../utils/contentful'
-import { author } from '../utils/entries'
+/**
+ * @file groups all controllers in one file, enabling cleaner imports.
+ * @example import { Index, PageOne } from './controllers/'
+ */
 
-export default (response, reply) => {
-  const data = {
-    message: 'Requested data:',
-    response: {
-      json: {
-        a: 'key1',
-        b: 'key2'
-      }
-    }
-  }
-  const client = getClient(spaceID, getAccessToken('production'))
-
-  client.getEntries({
-    content_type: author
-  })
-  .then(function(entries) {
-    data.response.items = entries.items;
-    reply.view('index', data);
-  });
-}
+export { default as Home } from './home'
+export { default as Product } from './product'
+export { default as Post } from './post'
+export { default as BasicAuth } from './basic'

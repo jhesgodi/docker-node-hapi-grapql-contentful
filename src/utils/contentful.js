@@ -1,12 +1,12 @@
 import contentful from 'contentful'
 
 /** @access private */
-export const spaceID = 'wl1z0pal05vy'
+export const spaceID = 'pm9znv9nlk06'
 
 /** @access private */
 export const accessKeys = {
-  preview: '',
-  production: '0e3ec801b5af550c8a1257e8623b1c77ac9b3d8fcfc1b2b7494e3cb77878f92a'
+  preview: 'beab0c26a68c8af3549685794ccc9c48b6a4eb0f96981c847269ee290157b91f',
+  production: 'd727dc64c084462676538fdcf02e2f72d6470e837359f2fea38276604c93b4bb'
 }
 
 /**
@@ -14,13 +14,16 @@ export const accessKeys = {
  * @param  {String} [env='preview'] enviroments to be use
  * @return {String} API key for the passed enviroment if exists, empty otherwise
  */
-export const getAccessToken = (env = 'preview') => accessKeys[env] || '';
+export const getAccessToken = (env = 'preview') => accessKeys[env] || ''
 
 /**
  * Contenful API client handler for ajax requests
  * @type {Object}
  */
-export const getClient = (space, accessToken) => contentful.createClient({
+export const getClient = (
+  space = spaceID,
+  accessToken = accessKeys.preview
+) => contentful.createClient({
   space,
   accessToken
 })

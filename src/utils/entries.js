@@ -1,8 +1,11 @@
 /** @access private */
-export const author = '2PqfXUJwE8qSYKuM0U6w8M';
+export const AUTHOR = '1kUEViTN4EmGiEaaeC6ouY'
 
 /** @access private */
-export const category = '5KMiN6YPvi42icqAUQMCQe';
+export const CATEGORY = '5KMiN6YPvi42icqAUQMCQe'
 
 /** @access private */
-export const post = '2wKn6yEnZewu2SCCkus4as';
+export const POST = '2wKn6yEnZewu2SCCkus4as'
+
+/** @access private */
+export const PRODUCT = 'product'

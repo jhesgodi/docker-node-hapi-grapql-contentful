@@ -1,4 +1,4 @@
-import { Contract, Joi } from 'consumer-contracts';
+import { Contract, Joi } from 'consumer-contracts'
 
 module.exports = new Contract({
   name: 'User API',
@@ -15,4 +15,4 @@ module.exports = new Contract({
       public_repos: Joi.number().integer()
     })
   }
-});
+})
