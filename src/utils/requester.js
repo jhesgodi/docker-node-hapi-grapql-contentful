@@ -7,3 +7,5 @@ export default function getEntries(contentType) {
     content_type: contentType
   })
 }
+
+// TODO: Request single entry

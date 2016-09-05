@@ -1,5 +1,6 @@
 import isProduction from '../utils/environment'
 
+/** @access private */
 export default {
   ops: {
     interval: 50000

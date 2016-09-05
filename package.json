@@ -1,5 +1,5 @@
 {
-  "name": "docker_web_app",
+  "name": "NaaS",
   "version": "1.0.0",
   "description": "Hapi + GraphQL",
   "author": "JhesG",
@@ -35,10 +35,12 @@
     "good-console": "~6.1.2",
     "good-squeeze": "~4.0.0",
     "good": "~7.0.1",
+    "graphql": "0.7.0",
     "handlebars-helpers": "0.7.5",
     "handlebars": "~4.0.5",
     "hapi-auth-basic": "~4.2.0",
     "hapi-auth-cookie": "~6.1.1",
+    "hapi-graphql": "1.0.1",
     "hapi": "^15.0.3",
     "lodash": "4.15.0",
     "vision": "~4.1.0"

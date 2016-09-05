@@ -3,11 +3,14 @@ import Good from 'good'
 import Bcrypt from 'bcrypt'
 import Vision from 'vision'
 import BasicAuth from 'hapi-auth-basic'
+import GraphQL from 'hapi-graphql'
+import TestSchema from './src/schemas/author'
 
 import routes from './src/routes'
 import {
   goodConfig,
   viewsConfig,
+  // graphqlConfig,
   connectionConfig
 } from './src/config'
 
@@ -25,6 +28,24 @@ server.register([
   {
     register: Good,
     options: goodConfig
+  },
+  {
+    register: GraphQL,
+    options: {
+      query: {
+        schema: TestSchema,
+        graphiql: true,
+        formatError: (error) => ({
+          message: error.message,
+          locations: error.locations,
+          stack: error.stack
+        })
+      },
+      route: {
+        path: '/graphql/{params*}',
+        config: {}
+      }
+    }
   },
   {
     register: BasicAuth
