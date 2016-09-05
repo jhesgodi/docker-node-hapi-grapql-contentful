@@ -1,22 +1,10 @@
-import { getClient } from './utils/contentful'
+import index from './controllers/index'
 
 const routes = [
   {
     method: 'GET',
     path: '/',
-    handler(request, reply) {
-      const data = {
-        message: 'Requested data:',
-        response: {
-          json: {
-            a: 'key1',
-            b: 'key2'
-          }
-        }
-      }
-
-      reply.view('index', data)
-    }
+    handler: index
   },
   {
     method: 'GET',
