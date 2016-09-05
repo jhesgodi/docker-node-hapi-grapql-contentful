@@ -6,7 +6,7 @@ import isNumber from 'lodash/isNumber'
  * @return {[type]}           [description]
  */
 function censor(censorObj) {
-  let i = 0;
+  let i = 0
 
   return function(key, value) {
     const circular = i !== 0 &&
@@ -20,12 +20,12 @@ function censor(censorObj) {
     }
 
     if (manyNodes) {
-      return '[Unknown]';
+      return '[Unknown]'
     }
 
-    ++i;
+    ++i
 
-    return value;
+    return value
   }
 }
 

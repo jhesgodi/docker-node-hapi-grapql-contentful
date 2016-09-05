@@ -5,5 +5,5 @@ export default function getEntries(contentType) {
 
   return client.getEntries({
     content_type: contentType
-  });
+  })
 }

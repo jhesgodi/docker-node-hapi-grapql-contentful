@@ -2,22 +2,20 @@ import Hapi from 'hapi'
 import Good from 'good'
 import Bcrypt from 'bcrypt'
 import Vision from 'vision'
-import Handlebars from 'handlebars'
 import BasicAuth from 'hapi-auth-basic'
 
 import routes from './src/routes'
-
-const host = 'localhost'
-const port = 3000
+import {
+  goodConfig,
+  viewsConfig,
+  connectionConfig
+} from './src/config'
 
 // Create new server instance
 const server = new Hapi.Server()
 
 // Add server’s connection information
-server.connection({
-  host,
-  port
-})
+server.connection(connectionConfig)
 
 // register plugins to server instance
 server.register([
@@ -26,24 +24,7 @@ server.register([
   },
   {
     register: Good,
-    options: {
-      ops: {
-        interval: 10000
-      },
-      reporters: {
-        console: [
-          {
-            module: 'good-squeeze',
-            name: 'Squeeze',
-            args: [{ log: '*', response: '*', request: '*' }]
-          },
-          {
-            module: 'good-console'
-          },
-          'stdout'
-        ]
-      }
-    }
+    options: goodConfig
   },
   {
     register: BasicAuth
@@ -56,16 +37,7 @@ server.register([
   server.log('info', 'Plugins registered')
 
   // Views configuration
-  server.views({
-    engines: {
-      html: Handlebars
-    },
-    path: `${__dirname}/src/views`,
-    layoutPath: `${__dirname}/src/views/layout`,
-    layout: 'default',
-    partialsPath: `${__dirname}/src/views/partials`,
-    helpersPath: `${__dirname}/src/views/helpers`
-  })
+  server.views(viewsConfig)
   server.log('info', 'View configuration completed')
 
   // Hardcoded users object mock
@@ -110,6 +82,6 @@ server.register([
       server.log('error', errStart)
       throw errStart
     }
-    server.log('info', `Server running at: ${server.info.uri}`)
+    server.log('info', `🌎  Server running at: ${server.info.uri}`)
   })
 })
