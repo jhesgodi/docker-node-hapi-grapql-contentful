@@ -1,4 +1,4 @@
-import { AUTHOR } from '../utils/entries'
+import { AUTHOR } from '../utils/contentTypes'
 import getEntries from '../utils/requester'
 
 /**

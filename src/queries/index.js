@@ -1,4 +1,4 @@
-import * as entries from '../utils/entries'
+import * as entries from '../utils/contentTypes'
 
 export const authors = () =>
   `{

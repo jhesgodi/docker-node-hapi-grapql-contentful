@@ -1,4 +1,4 @@
-import { PRODUCT } from '../utils/entries'
+import { PRODUCT } from '../utils/contentTypes'
 import getEntries from '../utils/requester'
 
 /**
