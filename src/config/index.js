@@ -5,4 +5,5 @@
 
 export { default as goodConfig } from './console'
 export { default as viewsConfig } from './views'
+export { default as graphqlConfig } from './graphql'
 export { default as connectionConfig } from './connection'

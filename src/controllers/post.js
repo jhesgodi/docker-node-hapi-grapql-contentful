@@ -1,4 +1,4 @@
-import { POST } from '../utils/entries'
+import { AUTHOR } from '../utils/entries'
 import getEntries from '../utils/requester'
 
 /**
@@ -8,7 +8,7 @@ import getEntries from '../utils/requester'
  * @return {[type]}          [description]
  */
 export default (response, reply) => {
-  getEntries(POST).then((entries) => {
-    reply.view('index', entries)
+  getEntries(AUTHOR).then((entries) => {
+    reply.view('index', { data: entries.items })
   })
 }

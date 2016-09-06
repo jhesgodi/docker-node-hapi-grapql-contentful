@@ -1,5 +1,6 @@
-import { AUTHOR } from '../utils/entries'
-import getEntries from '../utils/requester'
+import { graphql } from 'graphql'
+import schema from '../schemas'
+import * as queries from '../queries'
 
 /**
  * [description]
@@ -8,7 +9,10 @@ import getEntries from '../utils/requester'
  * @return {[type]}          [description]
  */
 export default (response, reply) => {
-  getEntries(AUTHOR).then((entries) => {
-    reply.view('index', entries)
-  })
+  const query = queries.authors()
+  const handler = (data) => {
+    reply.view('index', data)
+  }
+
+  graphql(schema, query).then(handler)
 }
