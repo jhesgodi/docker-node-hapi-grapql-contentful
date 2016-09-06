@@ -1,6 +1,6 @@
 import expect from 'expect'
 
-describe('Array', () => {
+describe('Array functions tests', () => {
   describe('#indexOf()', () => {
     it('Shoul return -1 when the value is not present', () => {
       expect(

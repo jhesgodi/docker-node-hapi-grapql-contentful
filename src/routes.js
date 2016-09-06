@@ -1,6 +1,21 @@
-import { Home, Product, Post, BasicAuth } from './controllers'
+import path from 'path'
+
+import {
+  Home,
+  Product,
+  Post
+} from './controllers'
 
 const routes = [
+  {
+    method: 'GET',
+    path: '/public/{param*}',
+    handler: {
+      directory: {
+        path: path.join(__dirname, 'public')
+      }
+    }
+  },
   {
     method: 'GET',
     path: '/',
@@ -15,14 +30,6 @@ const routes = [
     method: 'GET',
     path: '/posts',
     handler: Post
-  },
-  {
-    method: 'GET',
-    path: '/basic',
-    config: {
-      auth: 'basic',
-      handler: BasicAuth
-    }
   }
 ]
 

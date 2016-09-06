@@ -1,8 +1,7 @@
 import Hapi from 'hapi'
 import Good from 'good'
-import Bcrypt from 'bcrypt'
+import Inert from 'inert'
 import Vision from 'vision'
-import BasicAuth from 'hapi-auth-basic'
 import GraphQL from 'hapi-graphql'
 
 import routes from './src/routes'
@@ -13,16 +12,19 @@ import {
   connectionConfig
 } from './src/config'
 
-// Create new server instance
+/** Create new server instance */
 const server = new Hapi.Server()
 
-// Add server’s connection information
+/** Add server’s connection information */
 server.connection(connectionConfig)
 
-// register plugins to server instance
+/** Register plugins to server instance */
 server.register([
   {
     register: Vision
+  },
+  {
+    register: Inert
   },
   {
     register: Good,
@@ -31,9 +33,6 @@ server.register([
   {
     register: GraphQL,
     options: graphqlConfig
-  },
-  {
-    register: BasicAuth
   }
 ], (errPlugins) => {
   if (errPlugins) {
@@ -42,42 +41,11 @@ server.register([
   }
   server.log('info', 'Plugins registered')
 
-  // Views configuration
+  /** Views configuration */
   server.views(viewsConfig)
   server.log('info', 'View configuration completed')
 
-  // Hardcoded users object mock
-  const users = {
-    admin: {
-      username: 'admin',
-      password: '$2a$04$YPy8WdAtWswed8b9MfKixebJkVUhEZxQCrExQaxzhcdR2xMmpSJiG',
-      name: 'Admin',
-      id: '1'
-    }
-  }
-
-  // Validation function used for hapi-auth-basic
-  const basicValidation = (request, username, password, callback) => {
-    const user = users[username]
-
-    if (!user) {
-      return callback(null, false)
-    }
-
-    Bcrypt.compare(password, user.password, (bcryptError, isValid) => {
-      server.log('info', 'User authentication successful')
-      callback(bcryptError, isValid, {
-        id: user.id,
-        name: user.name
-      })
-    })
-
-    return null
-  }
-
-  server.auth.strategy('basic', 'basic', { validateFunc: basicValidation })
-  server.log('info', 'Registered auth strategy: basic auth')
-
+  /** Register routes */
   server.route(routes)
   server.log('info', 'Routes registered')
 

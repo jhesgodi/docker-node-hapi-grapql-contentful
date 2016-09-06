@@ -8,6 +8,7 @@ import getEntries from '../utils/requester'
  * @return {[type]}          [description]
  */
 export default (response, reply) => {
+  // TODO: Refactor to new basic graphql queries
   getEntries(PRODUCT).then((entries) => {
     reply.view('index', entries)
   })

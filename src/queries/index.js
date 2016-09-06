@@ -1,5 +1,9 @@
 import * as entries from '../utils/contentTypes'
 
+/**
+ * [authors description]
+ * @return {[type]} [description]
+ */
 export const authors = () =>
   `{
     author(id:"${entries.AUTHOR}") {

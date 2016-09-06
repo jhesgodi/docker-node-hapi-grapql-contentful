@@ -6,6 +6,8 @@ import {
 
 import getEntries from '../utils/requester'
 
+// TODO: Add shorthad type system documentation
+
 /**
  * [AuthorType description]
  * @type {GraphQLObjectType}

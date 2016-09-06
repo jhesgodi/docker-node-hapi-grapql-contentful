@@ -13,7 +13,7 @@ export default {
     })
   },
   route: {
-    path: '/graphql/{params*}',
+    path: '/graphql',
     config: {}
   }
 }
