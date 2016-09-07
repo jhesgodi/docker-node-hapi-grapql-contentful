@@ -2,7 +2,8 @@ import path from 'path'
 
 import {
   Home,
-  Model
+  Model,
+  Page1
 } from './controllers'
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     method: 'GET',
     path: '/model',
     handler: Model
+  },
+  {
+    method: 'GET',
+    path: '/page1',
+    handler: Page1
   }
 ]
 
