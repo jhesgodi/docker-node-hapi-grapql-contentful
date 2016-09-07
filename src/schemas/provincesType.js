@@ -1,7 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLNonNull,
-  GraphQLString
+  GraphQLString,
+  GraphQLList
 } from 'graphql'
 
 import getEntries from '../utils/requester'
@@ -9,47 +10,39 @@ import getEntries from '../utils/requester'
 // TODO: Add shorthad type system documentation
 
 /**
- * [AuthorType description]
+ * [ProvincesType description]
  * @type {GraphQLObjectType}
  */
-export const AuthorType = new GraphQLObjectType({
-  name: 'AuthorType',
+export const ProvincesType = new GraphQLObjectType({
+  name: 'ProvincesType',
   description: '[description]',
 
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLString),
       description: '[description]',
-      resolve: (author) => author
+      resolve: (obj) => obj.sys.id
     },
     name: {
       type: GraphQLString,
-      description: '[description]'
-    },
-    website: {
-      type: GraphQLString,
-      description: '[description]'
-    },
-    profilePhoto: {
-      type: GraphQLString,
       description: '[description]',
-      resolve: (author) => author.profilePhoto.fields.file.url
+      resolve: (obj) => obj.fields.name
     }
   })
 })
 
 /**
- * [AuthorQuery description]
+ * [ProvincesQuery description]
  * @type {Object}
  */
-export const AuthorQuery = {
-  type: AuthorType,
+export const ProvincesQuery = {
+  type: new GraphQLList(ProvincesType),
   args: {
     id: {
       type: GraphQLString,
       description: '[description]'
     }
   },
-  resolve: (root, { id }) => getEntries(id)
-    .then((entries) => entries.items[0].fields)
+  resolve: (_, { id }) => getEntries(id)
+    .then((entries) => entries.items)
 }

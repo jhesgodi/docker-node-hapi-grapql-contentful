@@ -8,7 +8,7 @@ import * as queries from '../queries'
  * @param  {[type]} reply    [description]
  * @return {[type]}          [description]
  */
-export default (response, reply) => {
+export default (request, reply) => {
   const query = queries.authors()
   const handler = (data) => {
     reply.view('index', data)

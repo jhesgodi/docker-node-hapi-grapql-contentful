@@ -4,7 +4,7 @@ import {
 } from 'graphql'
 
 /** Type systems & Query types */
-import { AuthorType, AuthorQuery } from './authorType'
+import { ProvincesType, ProvincesQuery } from './provincesType'
 
 /**
  * [QueryType description]
@@ -15,7 +15,7 @@ const QueryType = new GraphQLObjectType({
   description: '[description]',
 
   fields: () => ({
-    author: AuthorQuery
+    provinces: ProvincesQuery
   })
 })
 
@@ -23,6 +23,6 @@ const QueryType = new GraphQLObjectType({
 export default new GraphQLSchema({
   query: QueryType,
   types: [
-    AuthorType
+    ProvincesType
   ]
 })

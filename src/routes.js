@@ -2,11 +2,11 @@ import path from 'path'
 
 import {
   Home,
-  Product,
-  Post
+  Model
 } from './controllers'
 
 const routes = [
+  /** Static */
   {
     method: 'GET',
     path: '/public/{param*}',
@@ -16,6 +16,7 @@ const routes = [
       }
     }
   },
+  /** Dynamic */
   {
     method: 'GET',
     path: '/',
@@ -23,13 +24,8 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/products',
-    handler: Product
-  },
-  {
-    method: 'GET',
-    path: '/posts',
-    handler: Post
+    path: '/model',
+    handler: Model
   }
 ]
 

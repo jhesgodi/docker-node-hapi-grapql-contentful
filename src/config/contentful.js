@@ -1,4 +1,10 @@
 /** @access private */
+export const queryDefaults = {
+  locale: '*',
+  include: 2
+}
+
+/** @access private */
 export const spaceID = 'zqkap79i3rzr'
 
 /** @access private */
