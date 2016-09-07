@@ -4,7 +4,8 @@ import {
 } from 'graphql'
 
 /** Type systems & Query types */
-import { ProvincesType, ProvincesQuery } from './provincesType'
+import { PagesQuery } from './pagesType'
+import { ArticleType, HeroType } from './moduleType'
 
 /**
  * [QueryType description]
@@ -15,7 +16,7 @@ const QueryType = new GraphQLObjectType({
   description: '[description]',
 
   fields: () => ({
-    provinces: ProvincesQuery
+    pages: PagesQuery
   })
 })
 
@@ -23,6 +24,7 @@ const QueryType = new GraphQLObjectType({
 export default new GraphQLSchema({
   query: QueryType,
   types: [
-    ProvincesType
+    HeroType,
+    ArticleType
   ]
 })

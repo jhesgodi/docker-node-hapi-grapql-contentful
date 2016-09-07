@@ -13,7 +13,7 @@ function censor(censorObj) {
       typeof censorObj === 'object' &&
       typeof value === 'object' &&
       censorObj === value
-    const manyNodes = i >= 100
+    const manyNodes = i >= 150
 
     if (circular) {
       return '[Circular]'

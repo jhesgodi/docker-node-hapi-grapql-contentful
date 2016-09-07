@@ -1,7 +1,10 @@
 /** @access private */
-export const queryDefaults = {
-  locale: '*',
-  include: 2
+export const defaults = {
+  query: {
+    locale: '*',
+    include: 2
+  },
+  locale: 'en-US'
 }
 
 /** @access private */

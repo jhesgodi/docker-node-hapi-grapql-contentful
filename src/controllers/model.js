@@ -1,6 +1,6 @@
 // import util from 'util'
 import { getEntries } from '../utils/requester'
-import { PROVINCE } from '../utils/contentTypes'
+import { PAGE } from '../utils/contentTypes'
 
 /**
  * [description]
@@ -9,9 +9,12 @@ import { PROVINCE } from '../utils/contentTypes'
  * @return {[type]}          [description]
  */
 export default (request, reply) => {
-  getEntries(PROVINCE).then((entries) => {
+  getEntries(PAGE, {
+    locale: 'en-US'
+  })
+  .then((entries) => {
     const entry = entries
     // console.log(util.inspect(entry, { depth: null }))
-    reply.view('index', { data: entry })
+    reply.view('index', { data: entry.items[0].fields.provinces })
   })
 }

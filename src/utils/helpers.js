@@ -3,4 +3,14 @@
  * that does nothing.
  * @return {Null} Nothing
  */
-export default function noop() {}
+export function noop() {}
+
+/**
+ * [hasOwnProperty description]
+ * @param  {[type]}  object [description]
+ * @param  {[type]}  key    [description]
+ * @return {Boolean}        [description]
+ */
+export function hasOwnProperty(object, key) {
+  return {}.hasOwnProperty.call(object, key)
+}

@@ -1,4 +1,5 @@
-import { getClient, spaceID, getAccessToken, queryDefaults } from '../utils/contentful'
+import { getClient, spaceID, getAccessToken } from '../utils/contentful'
+import { defaults } from '../config/contentful'
 
 /**
  * [getEntries description]
@@ -8,7 +9,7 @@ import { getClient, spaceID, getAccessToken, queryDefaults } from '../utils/cont
 export const getEntries = function(contentType, args = {}) {
   const client = getClient(spaceID, getAccessToken('production'))
   const thisArgs = {
-    ...queryDefaults,
+    ...defaults.query,
     ...args
   }
   const options = {
@@ -27,7 +28,7 @@ export const getEntries = function(contentType, args = {}) {
 export const getEntry = function(id, args = {}) {
   const client = getClient(spaceID, getAccessToken('production'))
   const thisArgs = {
-    ...queryDefaults,
+    ...defaults.query,
     ...args
   }
 

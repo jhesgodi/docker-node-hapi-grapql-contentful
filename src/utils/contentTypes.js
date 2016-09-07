@@ -1,4 +1,7 @@
 /** @access private */
+export const PAGE = 'page'
+
+/** @access private */
 export const PROVINCE = 'provinces'
 
 /** @access private */
