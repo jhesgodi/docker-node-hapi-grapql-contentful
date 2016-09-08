@@ -9,6 +9,7 @@
       id
       type
       title
+      description
       image {
         id
         type
@@ -17,7 +18,7 @@
         url
       }
       ... on ArticleType {
-        description
+        cta
       }
     }
   }

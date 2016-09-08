@@ -29,6 +29,11 @@ const commonFields = {
     description: '[description]',
     resolve: (obj) => obj.fields.title
   },
+  description: {
+    type: GraphQLString,
+    description: '[description]',
+    resolve: (obj) => obj.fields.description
+  },
   image: {
     type: ImageType,
     description: '[description]',
@@ -62,6 +67,10 @@ export const ModuleInterface = new GraphQLInterfaceType({
       type: GraphQLString,
       description: '[description]'
     },
+    description: {
+      type: GraphQLString,
+      description: '[description]'
+    },
     image: {
       type: ImageType,
       description: '[description]'
@@ -84,10 +93,15 @@ export const ArticleType = new GraphQLObjectType({
 
   fields: () => ({
     ...commonFields,
-    description: {
+    style: {
       type: GraphQLString,
       description: '[description]',
-      resolve: (obj) => obj.fields.description
+      resolve: (obj) => obj.fields.style
+    },
+    cta: {
+      type: GraphQLString,
+      description: '[description]',
+      resolve: (obj) => obj.fields.cta
     }
   }),
   interfaces: [ModuleInterface]
