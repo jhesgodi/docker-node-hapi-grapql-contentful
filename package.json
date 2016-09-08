@@ -10,6 +10,7 @@
     "lint": "npm run eslint",
     "start:server": "babel-node server.js --exec babel-node --presets es2015,stage-2",
     "start": "nodemon server.js --exec babel-node --presets es2015,stage-2",
+    "start:server": "babel-node server.js --exec babel-node --presets es2015,stage-2",
     "test:contracts": "babel-node node_modules/.bin/consumer-contracts run",
     "test:watch": "npm run test -- -w",
     "test": "mocha tests/**/*.spec.js --compilers js:babel-core/register"
