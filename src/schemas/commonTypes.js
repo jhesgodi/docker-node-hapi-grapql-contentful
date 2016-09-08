@@ -40,4 +40,26 @@ export const ImageType = new GraphQLObjectType({
   })
 })
 
+/**
+ * [ProvinceType description]
+ * @type {GraphQLObjectType}
+ */
+export const ProvinceType = new GraphQLObjectType({
+  name: 'ProvinceType',
+  description: '[description]',
+
+  fields: () => ({
+    id: {
+      type: GraphQLString,
+      description: '[description]',
+      resolve: (obj) => obj.fields.id
+    },
+    name: {
+      type: GraphQLString,
+      description: '[description]',
+      resolve: (obj) => obj.fields.name
+    }
+  })
+})
+
 export default null

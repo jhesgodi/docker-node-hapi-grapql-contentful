@@ -2,10 +2,11 @@ import {
   GraphQLInterfaceType,
   GraphQLObjectType,
   GraphQLNonNull,
-  GraphQLString
+  GraphQLString,
+  GraphQLList
 } from 'graphql'
 
-import { ImageType } from './commonTypes'
+import { ImageType, ProvinceType } from './commonTypes'
 import { HERO, ARTICLE } from '../utils/contentTypes'
 
 /**
@@ -32,6 +33,11 @@ const commonFields = {
     type: ImageType,
     description: '[description]',
     resolve: (obj) => obj.fields.image
+  },
+  provinces: {
+    type: new GraphQLList(ProvinceType),
+    description: '[description]',
+    resolve: (obj) => obj.fields.provinces
   }
 }
 
@@ -58,6 +64,10 @@ export const ModuleInterface = new GraphQLInterfaceType({
     },
     image: {
       type: ImageType,
+      description: '[description]'
+    },
+    provinces: {
+      type: new GraphQLList(ProvinceType),
       description: '[description]'
     }
   }),
