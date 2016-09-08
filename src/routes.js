@@ -7,7 +7,6 @@ import {
 } from './controllers'
 
 const routes = [
-  /** Static */
   {
     method: 'GET',
     path: '/public/{param*}',
@@ -17,11 +16,10 @@ const routes = [
       }
     }
   },
-  /** Dynamic */
   {
     method: 'GET',
-    path: '/',
-    handler: Home
+    path: '/{province}/{locale}/{page}',
+    handler: Pages
   },
   {
     method: 'GET',
@@ -30,13 +28,8 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/page1',
-    handler: Pages
-  },
-  {
-    method: 'GET',
-    path: '/{province}/{locale}/{page}',
-    handler: Pages
+    path: '/',
+    handler: Home
   }
 ]
 

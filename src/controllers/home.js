@@ -1,7 +1,3 @@
-import { graphql } from 'graphql'
-import schema from '../schemas'
-import * as queries from '../queries'
-
 /**
  * [description]
  * @param  {[type]} response [description]
@@ -9,10 +5,5 @@ import * as queries from '../queries'
  * @return {[type]}          [description]
  */
 export default (request, reply) => {
-  const query = queries.authors()
-  const handler = (data) => {
-    reply.view('index', data)
-  }
-
-  graphql(schema, query).then(handler)
+  reply.view('index', {})
 }
