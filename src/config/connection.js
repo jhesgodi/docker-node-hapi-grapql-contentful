@@ -2,7 +2,7 @@
 export const host = 'localhost'
 
 /** @access private */
-export const port = 3000
+export const port = process.env.PORT || 3000
 
 /**
  * By default returns connection params object
