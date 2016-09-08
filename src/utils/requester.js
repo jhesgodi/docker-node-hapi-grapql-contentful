@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 import { getClient, spaceID, getAccessToken } from '../utils/contentful'
 import { defaults } from '../config/contentful'
 
@@ -33,4 +35,14 @@ export const getEntry = function(id, args = {}) {
   }
 
   return client.getEntry(id, thisArgs)
+}
+
+/**
+ * [doRequest description]
+ * @param  {[type]} endpoint  [description]
+ * @param  {Object} [args={}] [description]
+ * @return {[type]}           [description]
+ */
+export const doRequest = function(endpoint) {
+  return fetch(endpoint).then((res) => res.json())
 }
