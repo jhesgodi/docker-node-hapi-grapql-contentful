@@ -30,7 +30,8 @@ import { HERO, ARTICLE } from '../utils/contentTypes'
  *   image: [Image]
  *   provinces: [Province]
  *   style: String
- *   cta: String
+ *   ctaCopy: String
+ *   ctaUrl: String
  * }
  *
  * type Hero : Module {
@@ -133,10 +134,15 @@ export const ArticleType = new GraphQLObjectType({
       description: '[description]',
       resolve: (obj) => obj.fields.style
     },
-    cta: {
+    ctaCopy: {
       type: GraphQLString,
       description: '[description]',
-      resolve: (obj) => obj.fields.cta
+      resolve: (obj) => obj.fields.ctaCopy
+    },
+    ctaUrl: {
+      type: GraphQLString,
+      description: '[description]',
+      resolve: (obj) => obj.fields.ctaUrl
     }
   }),
   interfaces: [ModuleInterface]
