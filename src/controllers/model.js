@@ -15,6 +15,6 @@ export default (request, reply) => {
   .then((entries) => {
     const entry = entries
     // console.log(util.inspect(entry, { depth: null }))
-    reply.view('index', { data: entry.items[0].fields.provinces })
+    reply.view('index', { data: entry.items[0].fields })
   })
 }

@@ -5,6 +5,7 @@ import {
   GraphQLString
 } from 'graphql'
 
+import { ImageType } from './commonTypes'
 import { HERO, ARTICLE } from '../utils/contentTypes'
 
 /**
@@ -26,6 +27,11 @@ const commonFields = {
     type: GraphQLString,
     description: '[description]',
     resolve: (obj) => obj.fields.title
+  },
+  image: {
+    type: ImageType,
+    description: '[description]',
+    resolve: (obj) => obj.fields.image
   }
 }
 
@@ -48,6 +54,10 @@ export const ModuleInterface = new GraphQLInterfaceType({
     },
     title: {
       type: GraphQLString,
+      description: '[description]'
+    },
+    image: {
+      type: ImageType,
       description: '[description]'
     }
   }),
