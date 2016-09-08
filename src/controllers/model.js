@@ -1,6 +1,7 @@
 // import util from 'util'
 import { getEntries } from '../utils/requester'
 import { PAGE } from '../utils/contentTypes'
+import * as globals from '../utils/globals'
 
 /**
  * [description]
@@ -10,7 +11,7 @@ import { PAGE } from '../utils/contentTypes'
  */
 export default (request, reply) => {
   getEntries(PAGE, {
-    locale: 'en-US'
+    locale: globals.get('locale')
   })
   .then((entries) => {
     const entry = entries

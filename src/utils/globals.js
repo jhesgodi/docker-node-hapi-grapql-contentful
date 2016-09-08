@@ -2,7 +2,7 @@ import { hasOwnProperty } from './helpers'
 
 /** @access private */
 const globals = {
-  locale: 'en-US'
+  locale: 'en-CA'
 }
 
 /**
