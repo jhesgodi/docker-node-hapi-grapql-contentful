@@ -1,9 +1,19 @@
 <article class="article-container container">
-  <h2>{{ title }}</h2>
   <div class="grid-row">
-    <div class="small-6">
-      <img src="{{ image.url }}" alt="Article Image" />
+    {{#ifEqual style "left"}}
+      <div class="small-6 top-spaced">
+        <img src="{{ image.url }}" alt="Article Image" />
+      </div>
+    {{/ifEqual}}
+    <div class="small-6 top-spaced">
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+      <a href="{{ cta }}">{{ cta }}</a>
     </div>
-    <div class="small-6">{{ description }}</div>
+    {{#ifEqual style "right"}}
+      <div class="small-6 top-spaced">
+        <img src="{{ image.url }}" alt="Article Image" />
+      </div>
+    {{/ifEqual}}
   </div>
 </article>

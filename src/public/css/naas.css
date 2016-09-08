@@ -1,5 +1,30 @@
-.hero-container {
-  background-size: cover;
+.top-spaced {
+  padding-top: 10px;
+}
+
+.hero-spaced {
+  height: calc(100vh - 68px);
   background-position: center;
-  min-height: 50vh;
+  background-size: cover;
+}
+
+.hero-centered {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  text-align: center;
+}
+
+@media (min-width: 1170px) {
+  .hero-container.container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 959px) {
+  .hero-spaced {
+    max-width: 100%;
+    height: 400px;
+  }
 }

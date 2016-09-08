@@ -18,7 +18,12 @@
         url
       }
       ... on ArticleType {
+        style
         cta
+      }
+      provinces {
+        id
+        name
       }
     }
   }
