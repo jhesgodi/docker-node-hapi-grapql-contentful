@@ -1,21 +1,31 @@
-import * as entries from '../utils/contentTypes'
+import * as contentTypes from '../utils/contentTypes'
 
-/**
- * [authors description]
- * @return {[type]} [description]
- */
-export const authors = () =>
+export const pages = (provinceId) =>
   `{
-    author(id:"${entries.AUTHOR}") {
+    pages(id: "${contentTypes.PAGE}", province: "${provinceId}") {
+      id
       name
-      website
-      profilePhoto
+      locale
+      modules {
+        id
+        type
+        title
+        ... on ArticleType {
+          description
+        }
+        image {
+          id
+          type
+          title
+          description
+          url
+        }
+        provinces {
+          id
+          name
+        }
+      }
     }
   }`
 
-export const posts = () =>
-  `{
-    posts(id:"${entries.POST}") {
-      name
-    }
-  }`
+export default null
