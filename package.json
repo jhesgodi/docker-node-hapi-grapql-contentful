@@ -32,6 +32,7 @@
     "consumer-contracts": "1.4.0",
     "contentful": "3.5.0",
     "expect": "1.20.2",
+    "fetch": "1.1.0",
     "good": "~7.0.1",
     "good-console": "~6.1.2",
     "good-squeeze": "~4.0.0",

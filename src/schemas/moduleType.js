@@ -10,6 +10,41 @@ import { ImageType, ProvinceType } from './commonTypes'
 import { HERO, ARTICLE } from '../utils/contentTypes'
 
 /**
+ *
+ * Shorthand description for <Module> type systems: *
+ *
+ * interface Module {
+ *   id: String!
+ *   type: String
+ *   title: String
+ *   description: String
+ *   image: [Image]
+ *   provinces: [Province]
+ * }
+ *
+ * type Article : Module {
+ *   id: String!
+ *   type: String
+ *   title: String
+ *   description: String
+ *   image: [Image]
+ *   provinces: [Province]
+ *   style: String
+ *   cta: String
+ * }
+ *
+ * type Hero : Module {
+ *   id: String!
+ *   type: String
+ *   title: String
+ *   description: String
+ *   image: [Image]
+ *   provinces: [Province]
+ * }
+ *
+ */
+
+/**
  * [commonFields description]
  * @type {Object}
  */

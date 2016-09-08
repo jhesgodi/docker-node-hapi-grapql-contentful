@@ -1,7 +1,27 @@
 import {
   GraphQLObjectType,
+  GraphQLNonNull,
   GraphQLString
 } from 'graphql'
+
+/**
+ *
+ * Shorthand description for <Common> type systems: *
+ *
+ * type Image: Object {
+ *   id: String!
+ *   type: String
+ *   url: String
+ *   title: String
+ *   description: String
+ * }
+ *
+ * type Province : Object {
+ *   id: String!
+ *   name: String
+ * }
+ *
+ */
 
 /**
  * [ImageType description]
@@ -13,7 +33,7 @@ export const ImageType = new GraphQLObjectType({
 
   fields: () => ({
     id: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: '[description]',
       resolve: (obj) => obj.sys.id
     },
@@ -50,7 +70,7 @@ export const ProvinceType = new GraphQLObjectType({
 
   fields: () => ({
     id: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: '[description]',
       resolve: (obj) => obj.fields.id
     },

@@ -1,4 +1,4 @@
-# Example of query for pages
+# Example of query for pages on GraphiQL
 
 {
   pages(id: "page", province: "04") {
@@ -28,3 +28,5 @@
     }
   }
 }
+
+# Page URLs

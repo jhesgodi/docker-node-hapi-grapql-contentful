@@ -10,7 +10,22 @@ import { ModuleInterface } from './moduleType'
 import * as globals from '../utils/globals'
 import { getEntries } from '../utils/requester'
 
-// TODO: Add shorthad type system documentation
+/**
+ *
+ * Shorthand description for <Page> type systems: *
+ *
+ * type Page : Object {
+ *   id: String!
+ *   locale: String
+ *   name: String
+ *   modules: [Module]
+ * }
+ *
+ * type Query {
+ *   pages(id: String!, province: String!): Page
+ * }
+ *
+ */
 
 /**
 * [belongsToProvince description]
