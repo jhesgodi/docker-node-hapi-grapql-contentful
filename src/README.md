@@ -19,7 +19,8 @@
       }
       ... on ArticleType {
         style
-        cta
+        ctaCopy
+        ctaUrl
       }
       provinces {
         id

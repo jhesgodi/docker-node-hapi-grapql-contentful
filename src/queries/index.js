@@ -20,7 +20,8 @@ export const pages = (provinceId) =>
         }
         ... on ArticleType {
           style
-          cta
+          ctaCopy
+          ctaUrl
         }
         provinces {
           id
