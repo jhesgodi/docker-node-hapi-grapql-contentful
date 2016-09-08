@@ -1,5 +1,10 @@
 import * as contentTypes from '../utils/contentTypes'
 
+/**
+ * Creates a query descriptor to request pages
+ * @param  {String} provinceId Procince ISO subdivision code
+ * @return {String} grapql query descriptor
+ */
 export const pages = (provinceId) =>
   `{
     pages(id: "${contentTypes.PAGE}", province: "${provinceId}") {
@@ -31,4 +36,5 @@ export const pages = (provinceId) =>
     }
   }`
 
+// TODO: Delete later on when more exports are added
 export default null

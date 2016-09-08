@@ -1,6 +1,9 @@
 import isProduction from '../utils/environment'
 
-/** @access private */
+/**
+ * By default returns good console params object
+ * @return {Object} default logger params
+ */
 export default {
   ops: {
     interval: 50000

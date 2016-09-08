@@ -6,7 +6,8 @@ import {
 
 /**
  *
- * Shorthand description for <Common> type systems: *
+ * CommonTypes is list of reusable type systems to define new GraphQL shemas
+ * Shorthand description for <Common> type systems:
  *
  * type Image: Object {
  *   id: String!
@@ -24,59 +25,59 @@ import {
  */
 
 /**
- * [ImageType description]
+ * Describes images type system
  * @type {GraphQLObjectType}
  */
 export const ImageType = new GraphQLObjectType({
   name: 'ImageType',
-  description: '[description]',
+  description: 'Image Asset',
 
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLString),
-      description: '[description]',
+      description: 'unique id from cms',
       resolve: (obj) => obj.sys.id
     },
     type: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'entity type on cms',
       resolve: (obj) => obj.sys.type
     },
     url: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'image source link',
       resolve: (obj) => obj.fields.file.url
     },
     title: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'image title',
       resolve: (obj) => obj.fields.title
     },
     description: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'image description',
       resolve: (obj) => obj.fields.description
     }
   })
 })
 
 /**
- * [ProvinceType description]
+ * Describes provinces type system
  * @type {GraphQLObjectType}
  */
 export const ProvinceType = new GraphQLObjectType({
   name: 'ProvinceType',
-  description: '[description]',
+  description: 'Province Entity',
 
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLString),
-      description: '[description]',
+      description: 'province iso subdivision code',
       resolve: (obj) => obj.fields.id
     },
     name: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'province full name',
       resolve: (obj) => obj.fields.name
     }
   })

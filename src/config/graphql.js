@@ -1,7 +1,10 @@
 import Schema from '../../src/schemas'
 import isProduction from '../utils/environment'
 
-/** @access private */
+/**
+ * By default returns GrapQL params object
+ * @return {Object} default params for GrapiQL tool
+ */
 export default {
   query: {
     schema: Schema,

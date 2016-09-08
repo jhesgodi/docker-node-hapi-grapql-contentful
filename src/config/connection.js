@@ -1,7 +1,7 @@
-/** @access private */
+/** @access public */
 export const host = '0.0.0.0'
 
-/** @access private */
+/** @access public */
 export const port = process.env.PORT || 3000
 
 /**

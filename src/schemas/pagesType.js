@@ -11,8 +11,8 @@ import * as globals from '../utils/globals'
 import { getEntries } from '../utils/requester'
 
 /**
- *
- * Shorthand description for <Page> type systems: *
+ * PagesType defines an interface that describes Pages type system and queries
+ * Shorthand description for <Page> type systems:
  *
  * type Page : Object {
  *   id: String!
@@ -28,20 +28,20 @@ import { getEntries } from '../utils/requester'
  */
 
 /**
-* [belongsToProvince description]
-* @param  {[type]} provinces  [description]
-* @param  {[type]} provinceId [description]
-* @return {[type]}            [description]
+* Checks if a province id was found in the list
+* @param  {Array} provinces  list of linked provinces
+* @param  {[type]} provinceId id to be filtered
+* @return {Boolean} true if was found, false otherwise
 */
 function belongsToProvince(provinces, provinceId) {
   return provinces.some((province) => province.fields.id === provinceId)
 }
 
 /**
- * [filterProvinces description]
- * @param  {[type]} entries [description]
- * @param  {[type]} args    [description]
- * @return {[type]}         [description]
+ * Filter a list of entries by province
+ * @param  {Object} entries list of pages fetched from API
+ * @param  {Object} args query arguments
+ * @return {Array} lists of entries maching the filter
  */
 function filterProvinces(entries, args) {
   return !args.province
@@ -52,39 +52,39 @@ function filterProvinces(entries, args) {
 }
 
 /**
- * [PagesType description]
+ * Describes Page type system
  * @type {GraphQLObjectType}
  */
 export const PagesType = new GraphQLObjectType({
   name: 'PagesType',
-  description: '[description]',
+  description: 'Page -> Describes a page structure',
 
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLString),
-      description: '[description]',
+      description: 'unique id from cms',
       resolve: (obj) => obj.sys.id
     },
     locale: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'entity type on cms',
       resolve: () => globals.get('locale')
     },
     name: {
       type: GraphQLString,
-      description: '[description]',
+      description: 'page name',
       resolve: (obj) => obj.fields.name
     },
     modules: {
       type: new GraphQLList(ModuleInterface),
-      description: '[description]',
+      description: 'lists of liked modules to be shown',
       resolve: (obj) => obj.fields.modules
     }
   })
 })
 
 /**
- * [PagesQuery description]
+ * Describes a query to retrieve all pages from cms
  * @type {Object}
  */
 export const PagesQuery = {
@@ -92,11 +92,11 @@ export const PagesQuery = {
   args: {
     id: {
       type: GraphQLString,
-      description: '[description]'
+      description: 'contentType of the entity on cms'
     },
     province: {
       type: GraphQLString,
-      description: '[description]'
+      description: 'province ISO subdivision code to filter pages'
     }
   },
   resolve: (_, args) =>

@@ -8,13 +8,16 @@ import { gelocalizeIp } from '../utils/endpoints'
 import { ARTICLE, HERO } from '../utils/contentTypes'
 
 /**
- * [description]
- * @param  {[type]} response [description]
- * @param  {[type]} reply    [description]
- * @return {[type]}          [description]
+ * Handle requests made to route: <'/' -> Home page>
+ * @param  {Object} route request parameters
+ * @param  {ReplyInterface} reply reply interface to handle responses and rendering
+ * @return {undefined}
  */
 export default (request, reply) => {
   const endpoint = gelocalizeIp(request.query.ip)
+
+  // TODO: Refactor this to do it by chaining Promises
+  // like: doRequest(endpoint).then(handleRequest).then(queryPage).then(reply)
   const requestHandler = (geoRef) => {
     const locale = `${geoRef.locale_code}-${geoRef.country_iso_code}`
     const provinceId = geoRef.subdivision_1_iso_code

@@ -6,10 +6,12 @@ import schema from '../schemas'
 import * as queries from '../queries'
 
 /**
- * [description]
- * @param  {[type]} request [description]
- * @param  {[type]} reply    [description]
- * @return {[type]}          [description]
+ * Handle requests made to route: <'/{province}/{locale}/{page}' -> Pages>
+ * This handler uses grapql to requests a list of pages for an specific
+ * province / languaje
+ * @param  {Object} route request parameters
+ * @param  {ReplyInterface} reply reply interface to handle responses and rendering
+ * @return {undefined}
  */
 export default (request, reply) => {
   globals.set('locale', request.params.locale)

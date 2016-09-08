@@ -1,5 +1,9 @@
 import { Contract, Joi } from 'consumer-contracts'
 
+/**
+ * Contract tests for test a random github account
+ * @type {Contract}
+ */
 export default new Contract({
   name: 'User API',
   consumer: 'GitHub Services',

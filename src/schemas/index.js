@@ -1,3 +1,7 @@
+/**
+ * @file Exports a GraphQLSchema build from imported type systems & query types
+ */
+
 import {
   GraphQLSchema,
   GraphQLObjectType
@@ -8,19 +12,20 @@ import { PagesQuery } from './pagesType'
 import { ArticleType, HeroType } from './moduleType'
 
 /**
- * [QueryType description]
+ * GrapQL Query type descriptor
  * @type {GraphQLObjectType}
+ * @access private
  */
 const QueryType = new GraphQLObjectType({
   name: 'Query',
-  description: '[description]',
+  description: 'Application available queries to CMS',
 
   fields: () => ({
     pages: PagesQuery
   })
 })
 
-/** @access private */
+/** @access public */
 export default new GraphQLSchema({
   query: QueryType,
   types: [

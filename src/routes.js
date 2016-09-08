@@ -6,7 +6,12 @@ import {
   Pages
 } from './controllers'
 
+/**
+ * Array of routes signatures
+ * @type {Array}
+ */
 const routes = [
+  /** Static routes */
   {
     method: 'GET',
     path: '/public/{param*}',
@@ -16,6 +21,7 @@ const routes = [
       }
     }
   },
+  /** Dynamic routes */
   {
     method: 'GET',
     path: '/{province}/{locale}/{page}',

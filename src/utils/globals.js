@@ -1,3 +1,10 @@
+/**
+ * Global constants helper
+ *
+ * @file groups all global variables in one file, enabling cleaner imports.
+ * @example import * as globals from './utils/globals'
+ */
+
 import { hasOwnProperty } from './helpers'
 
 /** @access private */
@@ -6,9 +13,9 @@ const globals = {
 }
 
 /**
- * [set description]
- * @param {[type]} key   [description]
- * @param {[type]} value [description]
+ * Sets a value for a variable
+ * @param {String} key variable name
+ * @param {String} value variable value
  */
 export function set(key, value) {
   if (hasOwnProperty(globals, key)) {
@@ -17,10 +24,10 @@ export function set(key, value) {
 }
 
 /**
- * [get description]
- * @param  {[type]} key [description]
- * @return {[type]}     [description]
+ * Gets current valur for variable
+ * @param  {String} key variable name
+ * @return {*} store value
  */
 export function get(key) {
-  return globals[key]
+  return globals[key] || undefined
 }

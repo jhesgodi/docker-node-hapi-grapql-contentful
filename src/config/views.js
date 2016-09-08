@@ -1,7 +1,10 @@
 import Handlebars from 'handlebars'
 import path from 'path'
 
-/** @access private */
+/**
+ * By default returns Visio tool params object
+ * @return {Object} default params for handling templates
+ */
 export default {
   engines: {
     html: Handlebars
