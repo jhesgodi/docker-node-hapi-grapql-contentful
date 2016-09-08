@@ -8,6 +8,7 @@
     "build": "babel src --out-dir dist",
     "eslint": "eslint {src,tests}/**",
     "lint": "npm run eslint",
+    "start:server": "babel-node server.js --exec babel-node --presets es2015,stage-2",
     "start": "nodemon server.js --exec babel-node --presets es2015,stage-2",
     "test:contracts": "babel-node node_modules/.bin/consumer-contracts run",
     "test:watch": "npm run test -- -w",
@@ -32,7 +33,6 @@
     "consumer-contracts": "1.4.0",
     "contentful": "3.5.0",
     "expect": "1.20.2",
-    "fetch": "1.1.0",
     "good": "~7.0.1",
     "good-console": "~6.1.2",
     "good-squeeze": "~4.0.0",
@@ -45,6 +45,7 @@
     "hapi-graphql": "1.0.1",
     "inert": "4.0.2",
     "lodash": "4.15.0",
+    "node-fetch": "1.6.0",
     "vision": "~4.1.0"
   }
 }
