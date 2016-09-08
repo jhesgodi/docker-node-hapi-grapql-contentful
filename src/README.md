@@ -9,15 +9,15 @@
       id
       type
       title
+      ... on ArticleType {
+        description
+      }
       image {
         id
         type
         title
         description
         url
-      }
-      ... on ArticleType {
-        description
       }
     }
   }

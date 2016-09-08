@@ -3,7 +3,7 @@ import path from 'path'
 import {
   Home,
   Model,
-  Page1
+  Pages
 } from './controllers'
 
 const routes = [
@@ -31,7 +31,12 @@ const routes = [
   {
     method: 'GET',
     path: '/page1',
-    handler: Page1
+    handler: Pages
+  },
+  {
+    method: 'GET',
+    path: '/{province}/{locale}/{page}',
+    handler: Pages
   }
 ]
 

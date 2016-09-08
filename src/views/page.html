@@ -1,8 +1,8 @@
-{{#each modules}}
-  {{#ifEqual id types.HERO}}
-    {{> hero}}
-  {{/ifEqual}}
-  {{#ifEqual id types.ARTICLE}}
-    {{> article}}
-  {{/ifEqual}}
-{{/each}}
+{{#each modules }}
+  {{#ifEqual type ../types.HERO }}
+    {{> hero }}
+  {{/ifEqual }}
+  {{#ifEqual type ../types.ARTICLE }}
+    {{> article }}
+  {{/ifEqual }}
+{{/each }}
