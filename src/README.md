@@ -21,6 +21,10 @@
         style
         cta
       }
+      provinces {
+        id
+        name
+      }
     }
   }
 }

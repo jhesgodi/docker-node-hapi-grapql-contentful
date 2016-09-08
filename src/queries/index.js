@@ -22,6 +22,10 @@ export const pages = (provinceId) =>
           style
           cta
         }
+        provinces {
+          id
+          name
+        }
       }
     }
   }`
