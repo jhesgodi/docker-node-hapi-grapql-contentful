@@ -1,3 +1,10 @@
-<article class="hero-container container xs-12" style="background-image:url({{ image.url }});">
-  <h2>{{ title }}</h2>
+<article class="hero-container container">
+  <div class="grid-row">
+    <div class="hero-spaced small-12" style="background-image:url({{ image.url }});">
+      <div class="hero-centered small-6">
+        <h1>{{ title }}</h1>
+        <div class="subhead">{{ description }}</div>
+      </div>
+    </div>
+  </div>
 </article>

@@ -18,6 +18,7 @@
         url
       }
       ... on ArticleType {
+        style
         cta
       }
     }

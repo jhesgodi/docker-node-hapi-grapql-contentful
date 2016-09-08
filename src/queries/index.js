@@ -10,9 +10,7 @@ export const pages = (provinceId) =>
         id
         type
         title
-        ... on ArticleType {
-          description
-        }
+        description
         image {
           id
           type
@@ -20,9 +18,9 @@ export const pages = (provinceId) =>
           description
           url
         }
-        provinces {
-          id
-          name
+        ... on ArticleType {
+          style
+          cta
         }
       }
     }
