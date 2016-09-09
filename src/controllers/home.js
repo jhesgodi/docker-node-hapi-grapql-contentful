@@ -42,10 +42,7 @@ const loadPages = (geoRef) => {
   globals.set('locale', locale)
 
   return graphql(schema, query)
-    .then((result) => ({
-      provinceId,
-      data: result.data
-    }))
+    .then(({ data }) => ({ provinceId, data }))
 }
 
 /**
