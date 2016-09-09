@@ -55,10 +55,10 @@ http://localhost:3000/ON/en-CA/Page%20A
 http://localhost:3000/ON/fr-CA/Page%20A
 
 - Page B -> New Brunswick / English:
-http://localhost:3000/ON/en-CA/Page%20A
+http://localhost:3000/NB/en-CA/Page%20B
 
 - Page B -> New Brunswick / French:
-http://localhost:3000/ON/fr-CA/Page%20A
+http://localhost:3000/NB/fr-CA/Page%20B
 
 - Page C -> Saskatchewan / English:
 http://localhost:3000/SK/en-CA/Page%20C

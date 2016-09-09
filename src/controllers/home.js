@@ -42,7 +42,10 @@ const loadPages = (geoRef) => {
   globals.set('locale', locale)
 
   return graphql(schema, query)
-    .then((data) => ({ provinceId, data }))
+    .then((result) => ({
+      provinceId,
+      data: result.data
+    }))
 }
 
 /**
@@ -52,9 +55,10 @@ const loadPages = (geoRef) => {
  * @return {undefined}
  */
 export default (request, reply) => {
-  const handleRequest = (provinceId, { data }) => {
+  const handleRequest = ({ provinceId, data }) => {
+    const pageName = 'Page%20A'
     const page = data.pages.find((thisPage) =>
-      thisPage.name === decodeURIComponent('Page%20A')
+      thisPage.name === decodeURIComponent(pageName)
     )
 
     if (!page) {
@@ -80,5 +84,7 @@ export default (request, reply) => {
   loadGeoreference(request.query.ip)
     .then(loadPages)
     .then(handleRequest)
-    .done()
+    .catch((err) => {
+      throw err
+    })
 }
