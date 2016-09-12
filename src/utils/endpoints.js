@@ -11,7 +11,7 @@
  * @return {String} service url
  */
 export const gelocalizeIp = (ip) =>
-  `http://application.telus-marketing-microservice-production.teluswebteam.com/ip-lookup/${ip}?access_key=r9gsOWk92QW50l$`
+  `${ip}`
 
 // TODO: Delete later on when more exports are added
 export default null

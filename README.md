@@ -1,5 +1,5 @@
-# Telus / NaaS Project - POC
-NaaS project proposed architecture based on: NodeJs + ( HapiJs, GrapQL & Contenful )
+# HapiJs GrapQL POC
+NodeJs + ( HapiJs, GrapQL & Contenful )
 
 ## Install & Run
 Simply run ```npm i && npm start``` on project root folder

@@ -4,5 +4,5 @@
  * @return {undefined}
  */
 ((name) => {
-  console.log(`Test JS :: ${name}`)
-})('NaaS')
+  console.log(`JS :: ${name}`)
+})('Test')
